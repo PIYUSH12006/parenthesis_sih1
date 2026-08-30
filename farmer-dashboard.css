@@ -606,5 +606,34 @@ body {
 
         gap: 25px;
     }
+    /* ================================
+   LANGUAGE SWITCHER
+================================ */
 
+.language {
+    display: flex;
+    align-items: center;
+}
+
+.language button {
+    border: none;
+    background: #ffffff;
+    color: #1f2937;
+    padding: 9px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.language button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.language button:active {
+    transform: scale(0.97);
+}
 }
