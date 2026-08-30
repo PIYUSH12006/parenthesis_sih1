@@ -8,7 +8,34 @@
 <link rel="stylesheet" href="procurement-tracking.css">
 </head>
 <body>
-<header class="topbar"><div class="brand">🌾 KisanSetu</div><div class="top-actions"><a href="farmer-dashboard.html">Farmer Dashboard</a><a href="admin-dashboard.html">Admin Dashboard</a></div></header>
+<header class="topbar">
+
+    <div class="brand">
+        🌾 KisanSetu
+    </div>
+
+    <div class="top-actions">
+
+        <a href="farmer-dashboard.html">
+            Farmer Dashboard
+        </a>
+
+        <a href="admin-dashboard.html">
+            Admin Dashboard
+        </a>
+
+        <button
+            id="languageButton"
+            class="language-button"
+            onclick="toggleLanguage()"
+            type="button"
+        >
+            🌐 हिंदी
+        </button>
+
+    </div>
+
+</header>
 <main class="container">
 <section class="hero"><div><p class="eyebrow">SMART PROCUREMENT MANAGEMENT</p><h1>Procurement Tracking & Payment</h1><p>Track your token, crop verification, weighing, payable amount and payment status from one place.</p></div><div class="id-box"><label>Procurement ID</label><div class="search-row"><input id="trackingId" value="KS-2026-00421" placeholder="e.g. KS-2026-00421"><button onclick="trackProcurement()">Track</button></div></div></section>
 <section id="farmerView" class="view">
@@ -33,5 +60,6 @@
 </main>
 <div class="switcher"><button id="farmerTab" class="active" onclick="setView('farmer')">👨‍🌾 Farmer View</button><button id="adminTab" onclick="setView('admin')">🏢 Admin View</button></div>
 <div id="toast" class="toast"></div>
+<script src="language.js"></script>
 <script src="procurement-tracking.js"></script>
 </body></html>
