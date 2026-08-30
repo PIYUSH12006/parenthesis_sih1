@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Procurement Tracking | KisanSetu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="procurement-tracking.css">
+</head>
+<body>
+<header class="topbar"><div class="brand">🌾 KisanSetu</div><div class="top-actions"><a href="farmer-dashboard.html">Farmer Dashboard</a><a href="admin-dashboard.html">Admin Dashboard</a></div></header>
+<main class="container">
+<section class="hero"><div><p class="eyebrow">SMART PROCUREMENT MANAGEMENT</p><h1>Procurement Tracking & Payment</h1><p>Track your token, crop verification, weighing, payable amount and payment status from one place.</p></div><div class="id-box"><label>Procurement ID</label><div class="search-row"><input id="trackingId" value="KS-2026-00421" placeholder="e.g. KS-2026-00421"><button onclick="trackProcurement()">Track</button></div></div></section>
+<section id="farmerView" class="view">
+<div class="grid two">
+<div class="card summary"><div class="card-head"><h2>📦 Procurement Summary</h2><span id="statusBadge" class="badge">In Progress</span></div><div class="details"><div><small>Farmer</small><strong id="farmerName">Ramesh Kumar</strong></div><div><small>Crop</small><strong id="crop">Wheat</strong></div><div><small>Quantity</small><strong id="quantity">50 Quintals</strong></div><div><small>Center</small><strong id="center">Ghaziabad Wheat Center</strong></div><div><small>Token</small><strong id="token">#125</strong></div><div><small>Slot</small><strong id="slot">10:00 AM - 11:00 AM</strong></div></div></div>
+<div class="card payment-card"><div class="card-head"><h2>💰 Payment</h2><span id="paymentBadge" class="badge warning">Processing</span></div><div class="amount"><small>Net Payable</small><strong id="payable">₹1,21,250</strong></div><div class="payment-grid"><div><span>Rate</span><b id="rate">₹2,425 / Quintal</b></div><div><span>Method</span><b id="method">Bank Transfer (DBT)</b></div><div><span>Payment ID</span><b id="paymentId">PAY-826491</b></div><div><span>Expected</span><b id="expected">30 Aug 2026</b></div></div><button class="secondary" onclick="downloadReceipt()">🧾 Download Receipt</button></div>
+</div>
+<div class="card timeline-card"><div class="card-head"><div><h2>🔄 Live Procurement Timeline</h2><p id="lastUpdated">Last updated just now</p></div><strong id="progressText">60%</strong></div><div class="progress"><div id="progressBar"></div></div><div id="timeline" class="timeline"></div></div>
+<div class="grid two">
+<div class="card queue-card"><div class="card-head"><h2>🎟️ Digital Token</h2><span class="live-dot">● LIVE</span></div><div class="token-big" id="queueToken">#125</div><div class="queue-meta"><div><span>Currently Serving</span><b id="serving">#118</b></div><div><span>Farmers Ahead</span><b id="ahead">7</b></div><div><span>Estimated Wait</span><b id="wait">21 min</b></div></div></div>
+<div class="card payment-steps"><h2>💳 Payment Processing</h2><div id="paymentTimeline"></div></div>
+</div>
+</section>
+<section id="adminView" class="view hidden">
+<div class="admin-header"><div><p class="eyebrow">ADMIN CONTROL PANEL</p><h2>Update Procurement</h2><p>Change the procurement stage and payment state. Changes are stored in this browser for the SIH demo.</p></div><button class="secondary" onclick="resetDemo()">Reset Demo</button></div>
+<div class="grid two">
+<div class="card"><h2>🔧 Procurement Stage</h2><label>Stage</label><select id="stageSelect"></select><label>Quality</label><select id="qualitySelect"><option>Pending</option><option>Passed</option><option>Rejected</option></select><label>Actual Quantity (Quintals)</label><input id="actualQty" type="number" min="0" step="0.01" value="50"><label>Rate (₹ / Quintal)</label><input id="rateInput" type="number" min="0" step="1" value="2425"><button class="primary" onclick="saveProcurement()">Save Procurement Update</button></div>
+<div class="card"><h2>💸 Payment Control</h2><label>Payment Method</label><select id="methodSelect"><option>Bank Transfer (DBT)</option><option>UPI</option><option>Direct Benefit Transfer</option></select><label>Payment Status</label><select id="paymentSelect"><option>Pending</option><option>Initiated</option><option>Processing</option><option>Successful</option><option>Failed</option></select><label>Transaction / Payment ID</label><input id="paymentInput" value="PAY-826491"><button class="primary" onclick="savePayment()">Update Payment</button></div>
+</div>
+<div class="card admin-table"><div class="card-head"><h2>📋 Procurement Record</h2><span id="adminMessage"></span></div><div class="table-wrap"><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody id="recordTable"></tbody></table></div></div>
+</section>
+</main>
+<div class="switcher"><button id="farmerTab" class="active" onclick="setView('farmer')">👨‍🌾 Farmer View</button><button id="adminTab" onclick="setView('admin')">🏢 Admin View</button></div>
+<div id="toast" class="toast"></div>
+<script src="procurement-tracking.js"></script>
+</body></html>
