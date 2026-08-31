@@ -139,19 +139,7 @@ setInterval(function() {
 }, 8000);
 // ADMIN DASHBOARD - CALL NEXT TOKEN
 
-function nextToken() {
 
-    const currentTokenElement =
-        document.getElementById("adminCurrentToken");
-
-    const nextTokenElement =
-        document.getElementById("nextTokenNumber");
-
-    const waitingElement =
-        document.getElementById("adminWaiting");
-
-    const totalWaitingElement =
-        document.getElementById("waitingFarmers");
 
 
     if (!currentTokenElement) {
@@ -199,24 +187,7 @@ function nextToken() {
 
 // UPDATE FARMER STATUS
 
-function updateStatus(button) {
 
-    const row =
-        button.parentElement.parentElement;
-
-
-    const status =
-        row.querySelector(".status");
-
-
-    status.innerText =
-        "Completed";
-
-
-    status.classList.remove(
-        "waiting",
-        "verification"
-    );
 
 
     status.classList.add(
